@@ -421,7 +421,6 @@ class Lock(db.Document):  # 锁设备
         update['set__state'] = 1
         return Lock.objects(park_id=pid,gateway_id=gid,device_id=did).update_one(**update)
 
-    
     @staticmethod
     @scheduler.scheduled_job('cron', id='my_job_id', second='*/3', hour='*')
     def clearonline():

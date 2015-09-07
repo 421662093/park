@@ -30,10 +30,10 @@ def lock_update():
         action -- 开启或者关闭 锁
     '''
     #data = request.get_json()
-    pid = request.args.get('pid','')
-    gid = request.args.get('gid','')
-    did = request.args.get('did','')
-    action = request.args.get('action','')
+    pid = request.args.get('pid',0)
+    gid = request.args.get('gid',0)
+    did = request.args.get('did',0)
+    action = request.args.get('action',0)
     if len(pid)>0 and len(gid)>0 and len(did)>0:
         Lock.update(pid,gid,did,action)
         return jsonify(ret=1)
